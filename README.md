@@ -49,20 +49,20 @@ FETCH NEXT @RowsOfPage ROWS ONLY
 
 ```
 DECLARE @PageNumber AS INT
-        DECLARE @RowsOfPage AS INT
-        DECLARE @MaxTablePage  AS FLOAT 
-        SET @PageNumber=1
-        SET @RowsOfPage=4
-        SELECT @MaxTablePage = COUNT(*) FROM SampleFruits
-        SET @MaxTablePage = CEILING(@MaxTablePage/@RowsOfPage)
-        WHILE @MaxTablePage >= @PageNumber
-        BEGIN
-         SELECT FruitName,Price FROM SampleFruits
-        ORDER BY Price 
-        OFFSET (@PageNumber-1)*@RowsOfPage ROWS
-        FETCH NEXT @RowsOfPage ROWS ONLY
-        SET @PageNumber = @PageNumber + 1
-        END
+DECLARE @RowsOfPage AS INT
+DECLARE @MaxTablePage AS FLOAT 
+SET @PageNumber=1
+SET @RowsOfPage=4
+SELECT @MaxTablePage = COUNT(*) FROM SampleFruits
+SET @MaxTablePage = CEILING(@MaxTablePage/@RowsOfPage)
+WHILE @MaxTablePage >= @PageNumber
+BEGIN
+  SELECT FruitName, Price FROM SampleFruits
+  ORDER BY Price 
+  OFFSET (@PageNumber - 1) * @RowsOfPage ROWS
+  FETCH NEXT @RowsOfPage ROWS ONLY
+  SET @PageNumber = @PageNumber + 1
+END
 ```
 
 ## WinForms
