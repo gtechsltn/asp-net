@@ -9,6 +9,11 @@ https://github.com/gtechsltn/asp-net-core
 # Paging
 
 ## SQL
+
+https://stackoverflow.com/questions/9848592/dapper-paging
+
+https://andypalmer.dev/posts/pagination-with-dapper/
+
 ```
 SELECT  *
 FROM    ( SELECT    ROW_NUMBER() OVER ( ORDER BY InsertDate) AS RowNum, *
@@ -21,6 +26,8 @@ ORDER BY RowNum
 ```
 
 ## SQL Server
+
+https://www.carlrippon.com/scalable-and-performant-asp-net-core-web-apis-sql-server-isolation-level/
 
 https://www.sqlshack.com/pagination-in-sql-server/
 
@@ -80,6 +87,10 @@ END
 ## WinForms
 
 https://github.com/jinweijie/Dapper.PagingSample/
+
+https://www.codeproject.com/Articles/1257860/Paging-WPF-DataGrid
+
+https://www.codeproject.com/Articles/1198544/Pagination-in-asp-net-mvc-core-entity-framework-an
 
 ## C# SQL Database pagination sample using Dapper ORM.
 
