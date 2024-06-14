@@ -8,6 +8,18 @@ https://github.com/gtechsltn/asp-net-core
 
 # Paging
 
+## SQL
+```
+SELECT  *
+FROM    ( SELECT    ROW_NUMBER() OVER ( ORDER BY InsertDate) AS RowNum, *
+          FROM      Posts
+          WHERE     InsertDate >= '1900-01-01'
+        ) AS result
+WHERE   RowNum >= 1
+    AND RowNum < 20
+ORDER BY RowNum
+```
+
 ## SQL Server
 
 https://www.sqlshack.com/pagination-in-sql-server/
